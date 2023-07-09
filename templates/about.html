@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MovieMatch | About</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <a href="{{ url_for('home') }}"><img src="static/images/logo.png" alt="MovieMatch Logo"></a>
+                </div>
+                <ul class="navigation">
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
+                    <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                    <li><a href="{{ url_for('joinus') }}">Join Us</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <section class="about-section">
+        <div class="container">
+            <h1>About MovieMatch</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Sed et turpis malesuada, interdum nulla non, lacinia nisl. Mauris eu mi dignissim, bibendum lectus a, lacinia felis. In eu fringilla lacus.</p>
+            <p>Curabitur ut lacinia dolor, vitae hendrerit mi. Vivamus sit amet finibus ex, id viverra arcu. Vestibulum volutpat lectus non mauris iaculis, a suscipit mauris egestas. Sed tincidunt arcu at tristique eleifend.</p>
+        </div>
+    </section>
+</body>
+</html>

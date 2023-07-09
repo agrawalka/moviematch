@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MovieMatch | Home</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <a href="{{ url_for('home') }}"><img src="static/images/logo.png" alt="MovieMatch Logo"></a>
+                </div>
+                <ul class="navigation">
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
+                    <li><a href="{{ url_for('about') }}">About</a></li>
+                    <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                    <li><a href="{{ url_for('joinus') }}">Join Us</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <section class="home-section">
+        <div class="container">
+            <h1>Welcome to MovieMatch</h1>
+            <form action="/recommender" method="POST">
+                <div class="dropdowns">
+                    <select name="genre" id="genre">
+                        <option value="">Select Genre</option>
+                        <option value="Action">Action</option>
+                        <option value="Comedy">Comedy</option>
+                        <option value="Drama">Drama</option>
+                        <option value="Adventure">Adventure</option>
+                        <option value="Romance">Romance</option>
+                        <option value="Fantasy">Fantasy</option>
+                        <option value="Sci-Fi">Sci-Fi</option>
+                        <option value="Animation">Animation</option>
+                        <option value="Thriller">Thriller</option>
+                        <option value="Family">Family</option>
+                        <option value="Crime">Crime</option>
+                        <option value="Mystery">Mystery</option>
+                        <option value="Western">Western</option>
+                        <option value="Horror">Horror</option>
+                        <option value="History">History</option>
+                        <!-- Add more genre options -->
+                    </select>
+                    <select name="year" id="year">
+                        <option value="">Select Year</option>
+                        <option value="2012">2012</option>
+                        <option value="2011">2011</option>
+                        <option value="2010">2010</option>
+                        <!-- Add more year options -->
+                    </select>
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </section>
+</body>
+</html>
