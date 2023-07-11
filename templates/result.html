@@ -5,44 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MovieMatch | Results</title>
     <link rel="stylesheet" href="static/style.css">
-    <script>
-        function sortTable(n) {
-            var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-            table = document.getElementById("results-table");
-            switching = true;
-            dir = "asc";
-            while (switching) {
-                switching = false;
-                rows = table.rows;
-                for (i = 1; i < (rows.length - 1); i++) {
-                    shouldSwitch = false;
-                    x = rows[i].getElementsByTagName("TD")[n];
-                    y = rows[i + 1].getElementsByTagName("TD")[n];
-                    if (dir === "asc") {
-                        if (parseFloat(x.innerHTML) > parseFloat(y.innerHTML)) {
-                            shouldSwitch = true;
-                            break;
-                        }
-                    } else if (dir === "desc") {
-                        if (parseFloat(x.innerHTML) < parseFloat(y.innerHTML)) {
-                            shouldSwitch = true;
-                            break;
-                        }
-                    }
-                }
-                if (shouldSwitch) {
-                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-                    switching = true;
-                    switchcount++;
-                } else {
-                    if (switchcount === 0 && dir === "asc") {
-                        dir = "desc";
-                        switching = true;
-                    }
-                }
-            }
-        }
-    </script>
+
 </head>
 <body>
     <header>
@@ -62,15 +25,13 @@
     </header>
     <section class="results-section">
         <div class="container">
-            <h1>Movie Results</h1>
+            <h1>Movie Results - {{genre}} ({{selected_range}})</h1>
             <table id="results-table">
                 <thead>
                     <tr>
                         <th>Title</th>
                         <th>
                             IMDb Rating
-                            <span class="sort-link" onclick="sortTable(1);">&#x25B2;</span>
-                            <span class="sort-link" onclick="sortTable(1);">&#x25BC;</span>
                         </th>
                         <th>Year</th>
                         <th>Country</th>
@@ -79,17 +40,18 @@
                 </thead>
                 <tbody>
                     {% for movie in movies %}
-                    <tr onclick="window.open('https://www.google.com/search?q={{ movie[6] }}', '_blank');">
-                        <td>{{ movie[6] }}</td>
-                        <td>{{ movie[13] }}</td>
-                        <td>{{ movie[12] }}</td>
-                        <td>{{ movie[10] }}</td>
-                        <td>{{ movie[2],movie[5],movie[7]|join('') }}</td>
+                    <tr onclick="window.open('https://www.google.com/search?q={{ movie[0] }}movie', '_blank');">
+                        <td>{{ movie[0] }}</td>
+                        <td>{{ movie[3] }}</td>
+                        <td>{{ movie[2] }}</td>
+                        <td>{{ movie[8] }}</td>
+                        <td>{{ movie[4],movie[5],movie[6]|join('') }}</td>
                     </tr>
                     {% endfor %}
                 </tbody>
             </table>
         </div>
+        
     </section>
 </body>
 </html>
